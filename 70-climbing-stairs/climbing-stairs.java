@@ -1,11 +1,24 @@
 class Solution {
     public int climbStairs(int n) {
-        if (n < 39) {
-            if (n == 0) return 1;
-            if (n < 0) return 0;
-            return climbStairs(n - 1) + climbStairs(n - 2);
+        int a=2,b=1,temp=0;
+        if(n==1)
+        {
+            return b;
         }
-
-        return (int) (Math.pow((0.5 + Math.sqrt(5) / 2), n + 1) / Math.sqrt(5));
+        if(n==2)
+        {
+            return a;
+        }
+        for(int i=3;i<=n;i++)
+        {
+            temp=a+b;
+            b=a;
+            a=temp;
+            if(i==n)
+            {
+                break;
+            }
+        }
+        return temp;
     }
 }
