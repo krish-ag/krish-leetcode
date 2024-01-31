@@ -8,7 +8,7 @@ class Solution {
 
     public static int getCoinsSum(int[] coins, int sum, List<Integer> ll, int i, List<List<Integer>> ans) {
         if (sum == 0) {
-            ans.add(ll);
+            ans.add(new ArrayList<>(ll));
             return 1;
         }
 
@@ -20,13 +20,14 @@ class Solution {
 //            if (!used[i]) {
 //                used[i] = true;
             ll.add(coins[i]);
-            res += getCoinsSum(coins, sum - coins[i], new ArrayList<>(ll), i, ans);
+            res += getCoinsSum(coins, sum - coins[i], ll, i, ans);
             ll.remove(ll.size() - 1);
 //                used[i] = false;
 //        }
         }
         return res;
     }
+
 
 
 }
