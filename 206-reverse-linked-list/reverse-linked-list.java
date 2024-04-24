@@ -17,10 +17,8 @@ class Solution {
         if (head == null) {
             return prev;
         }
-
-        ListNode temp = head.next;
+        ListNode next = head.next;
         head.next = prev;
-
-        return reverse(temp, head);
+        return reverse(next, head);
     }
 }
