@@ -11,32 +11,22 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        int lA = len(headA);
-        int lB = len(headB);
-        int max = Math.max(lA, lB);
-        int diff = Math.abs(lA-lB);
-        ListNode maxNode = headB;
-        ListNode minNode = headA;
-        if (lA == max) {
-            maxNode = headA;
-            minNode = headB;
-        }
-
-        for (int i = 0; i < diff; i++){
-            maxNode = maxNode.next;
-        }
-        for (int i = 0; i < max - diff; i++){
-            if (maxNode == minNode) {
-                return maxNode;
+        ListNode K = headA;
+        ListNode P = headB;
+        while (K != P) {
+            if (K == null) {
+                K = headB;
             }
-            maxNode = maxNode.next;
-            minNode = minNode.next;
+            else {
+                K = K.next;
+            }
+            if (P == null){
+                P = headA;
+            }
+            else {
+                P = P.next;
+            }
         }
-        return null;
-    }
-
-    public static int len(ListNode head){
-        if (head == null) return 0;
-        return 1+len(head.next);
+        return K;
     }
 }
