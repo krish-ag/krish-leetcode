@@ -20,9 +20,6 @@ class Solution {
             int b = y != null ? y.val : 0;
             ans.val = (a + b + carry) % 10;
             carry = (a + b + carry) / 10;
-
-            System.out.print(carry + ":" + ans.val + " ");
-
             if ((x != null && x.next != null) || y != null && y.next != null) {
                 ans.next = new ListNode();
                 ans = ans.next;
