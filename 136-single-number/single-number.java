@@ -4,7 +4,7 @@ class Solution {
         for (int i: nums) {
             ans ^= i; 
         }
-
+        System.gc();
         return ans;
     }
 }
